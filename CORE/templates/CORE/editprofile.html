@@ -1,0 +1,23 @@
+{% extends 'CORE/index.html' %}
+
+{% block INDEX_TITULO %}
+Editar Perfil de usuario
+
+{% endblock INDEX_TITULO %}
+
+{% block INDEX_CONTENIDO %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {% for field in miFormulario %}
+                <tr>
+                    <th>{{ field.label_tag }}</th>
+                    <td>{{ field }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <input type="submit", value="Enviar">
+    </form>
+
+{% endblock INDEX_CONTENIDO %}

@@ -1,0 +1,19 @@
+{% extends 'CORE/base.html' %}
+
+{% block TITULO %}
+    Crear cliente
+{% endblock TITULO %}
+
+
+{% block CONTENIDO %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+
+    <a href="{% url 'CORE:home' %}">Ir al menú principal</a>
+
+{% endblock CONTENIDO %}
+

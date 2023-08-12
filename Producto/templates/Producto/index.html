@@ -1,0 +1,37 @@
+{% extends 'CORE/index.html' %}
+
+{% block INDEX_TITULO %} 
+    Productos
+{% endblock INDEX_TITULO %}
+
+{% block INDEX_CONTENIDO %}
+    
+    <h3 class="pb-lg-3 ">
+        Categoría de productos
+    </h3>
+    
+    <div class="d-grid gap-3 ">  
+        {% if user.is_staff %}
+            <a href="{% url 'Producto:productocategoria_create' %}" class="btn btn-primary ">Crear Categorías de Productos</a>
+            <br>
+        {% endif %}
+        <a href="{% url 'Producto:productocategoria_list' %}" class="btn btn-primary ">Listar Categorías de Productos</a>
+        <br>
+    </div>
+    
+    <h3 class="pb-lg-3 ">
+        Productos
+    </h3>
+    
+    <div class="d-grid gap-3 ">  
+        {% if user.is_staff %}
+            <a href="{% url 'Producto:producto_create' %}" class="btn btn-primary ">Crear Productos</a>
+            <br>
+        {% endif %}
+        <a href="{% url 'Producto:producto_list' %}" class="btn btn-primary ">Listar Productos</a>
+        <br>
+    </div>
+
+    
+    <a href="{% url 'CORE:home' %}">Ir al menú principal</a>
+{% endblock INDEX_CONTENIDO %}

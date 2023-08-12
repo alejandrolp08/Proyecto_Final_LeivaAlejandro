@@ -1,0 +1,17 @@
+{% extends 'CORE/index.html' %}
+
+{% block INDEX_TITULO %}
+Registro de usuario
+{% endblock INDEX_TITULO %}
+
+{% block INDEX_CONTENIDO %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-grid gap-3"> 
+            <button type="submit" class="btn btn-success">Registrar nuevo usuario</button>
+        </div>
+    </form>
+
+{% endblock INDEX_CONTENIDO %}

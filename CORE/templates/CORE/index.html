@@ -1,0 +1,58 @@
+{% extends 'CORE/base.html' %}
+
+{% block BASE_CONTENIDO %}
+    
+    <div class="row align-items-center my-0.1">
+!        <h1 class=""pb-lg-3 text-bg-light>
+            {% block INDEX_TITULO %}
+            Pagina principal
+            {% endblock INDEX_TITULO %}
+
+        </h1>
+    </div>
+    
+    {% block INDEX_CONTENIDO %}
+        
+        {% if user.is_authenticated %}
+            {{ mensaje }}
+            <h3> Bienvenido {{ user.username }}</h3>
+        {% endif %}
+
+        {% if user.is_staff %}
+            <div class="row">
+                <a href="{% url 'admin:index' %}" class="btn btn-outline-dark">Panel de Administración</a>
+            </div>
+            <div class="row">
+                <a href="{% url 'CORE:register' %}" class="btn btn-outline-dark">Registrar nuevo vendedor</a>
+            </div>
+        {% endif %}        
+
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Compra tu figura favorita</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">!Al mejor precio!</p>
+                </div>
+            </div>
+        </header>
+        <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    {% include "CORE/card.html" with card="Naruto Shippuden - Jiraiya : One Last Heartbeat" link_imagen="https://1.bp.blogspot.com/-mHb5jwDkeF8/Xf3uF_JQBiI/AAAAAAAA69Q/1Cwf3OR0-EglusL2d7waKG2OpnCkl4EawCLcBGAsYHQ/s1600/1.jpgg" precio="$159.99" %}
+                    {% include "CORE/card.html" with card="THE CHILD - MANDALORIAN (DELUXE VERSION)" link_imagen="https://www.sideshow.com/cdn-cgi/image/width=850,quality=90,f=auto/https://www.sideshow.com/storage/product-images/905872/the-child_star-wars_gallery_63f79f839bb54.jpg" precio="199.99" %}
+                    {% include "CORE/card.html" with card="InuYasha Sesshomaru | Aus-Anime Collectables" link_imagen="https://resize.cdn.otakumode.com/ex/700.933/shop/product/6dcfdea9f6334686a4c5349ecf77a91d.jpg" precio="$89.99" %}
+                    {% include "CORE/card.html" with card="Hunter X Hunter: Netero Vs Meruem" link_imagen="https://figurama-collectors.com/cdn/shop/products/hunter_5000x.jpg?v=1557328883" precio="$145.99" %}
+                    {% include "CORE/card.html" with card="Bandai Tamashii Nations Metal Build Eva-01" link_imagen="https://m.media-amazon.com/images/I/71R7ezY6vcL._AC_SY879_.jpg" precio="$130.00" %}
+                    {% include "CORE/card.html" with card="Marvel Comics Thanos (Stand-Alone)" link_imagen="https://i.ebayimg.com/images/g/SJwAAOSwlJ5gBqUH/s-l1600.jpg" precio="$299.99" %}
+                    {% include "CORE/card.html" with card="Avengers Infinity War Iron Spider Man Statue" link_imagen="https://i.etsystatic.com/45213089/r/il/524683/5195526761/il_794xN.5195526761_l3rf.jpg" precio="99.99" %}
+                    {% include "CORE/card.html" with card="BOBA FETT™ (DELUXE VERSION)" link_imagen="https://www.sideshow.com/cdn-cgi/image/width=850,quality=90,f=auto/https://www.sideshow.com/storage/product-images/907747/boba-fett-deluxe-version_star-wars_gallery_602ffb64e1b69.jpg" precio="495.99" %}
+           
+                </div>
+            </div>
+        </section>
+        
+    {% endblock INDEX_CONTENIDO %}
+    
+{% endblock BASE_CONTENIDO %}

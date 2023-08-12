@@ -1,0 +1,19 @@
+{% extends 'CORE/index.html' %}
+
+{% block INDEX_TITULO %}
+    Clientes
+{% endblock INDEX_TITULO %}
+
+{% block INDEX_CONTENIDO %}
+
+    {% for cliente in clientes %}
+        <h2>{{ cliente.nombre }}</h2>
+        <h3>{{ cliente.apellido }}</h3>
+        <p>{{ cliente.email }}</p>
+        <p>{{ cliente.edad }}</p>
+        <p>{{ cliente.pais }}</p>
+    {% endfor %}
+
+    <a href="{% url 'CORE:home' %}">Ir al menú principal</a>
+
+{% endblock INDEX_CONTENIDO %}

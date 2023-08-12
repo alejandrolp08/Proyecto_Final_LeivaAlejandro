@@ -1,0 +1,17 @@
+{% extends 'Producto/index.html' %}
+
+{% block INDEX_TITULO %} 
+    Crear/Actualizar Categorías de Productos
+{% endblock INDEX_TITULO %}
+
+{% block INDEX_CONTENIDO %}
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit">Guardar</button>
+    </form>
+
+    <a href="{% url 'CORE:home' %}">Ir al menú principal</a>
+    <a href="{% url 'Producto:home' %}">Volver a la pestaña anterior</a>
+{% endblock INDEX_CONTENIDO %}
